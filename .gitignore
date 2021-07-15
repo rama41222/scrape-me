@@ -102,3 +102,16 @@ dist
 
 # TernJS port file
 .tern-port
+
+# Env
+.env
+
+# OS
+.DS_Store
+
+# Stop web downloads from commiting
+downloads
+
+# compiled output
+/build
+/node_modules
