@@ -19,6 +19,6 @@ describe('Fetch Service', () => {
   it('Fetch should return text', async () => {
     const response = await fetchService.fetchPagesFromWeb(url);
     expect(response).toBeDefined();
-    expect(typeof response).toBe('string');
+    expect(typeof response).toBe('buffer');
   });
 });

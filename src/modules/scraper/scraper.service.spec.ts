@@ -1,10 +1,11 @@
+import { FetchService } from '../fetch/fetch.service';
 import { ScraperService } from './scraper.service';
 
 describe('Scraper Service', () => {
   let scraperService: ScraperService;
   let url: string;
   beforeEach(() => {
-    scraperService = new ScraperService();
+    scraperService = new ScraperService(new FetchService());
     url = 'https://crawler-test.com/';
   });
 
