@@ -111,6 +111,7 @@ dist
 
 # Stop web downloads from commiting
 downloads
+downloads/*
 
 # compiled output
 /build

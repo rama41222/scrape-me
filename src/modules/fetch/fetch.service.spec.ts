@@ -1,10 +1,11 @@
+import Logger from '../logger/logger.service';
 import { FetchService } from './fetch.service';
 
 describe('Fetch Service', () => {
   let fetchService: FetchService;
   let url: string;
   beforeEach(() => {
-    fetchService = new FetchService();
+    fetchService = new FetchService(new Logger());
     url = 'https://crawler-test.com/';
   });
 

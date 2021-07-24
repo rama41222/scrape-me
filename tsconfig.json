@@ -3,7 +3,7 @@
     "incremental": true,                         
     "target": "es2019",                                
     "module": "commonjs",                           
-    "lib": ["es6"],                                 
+    "lib": ["es7", "ESNext.String"],                                 
     "allowJs": false,
     "baseUrl": "./",
     "outDir": "build",                              

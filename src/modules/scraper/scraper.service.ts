@@ -10,10 +10,13 @@ import {
   parseMetadata,
   writeToDisk,
 } from './scraper.utils';
+import Logger from '../logger/logger.service';
+import CONSTANTS from '../../constants';
+
 export class ScraperService {
   private seenUrls: any = {};
 
-  constructor(private fetchService: FetchService) {}
+  constructor(private fetchService: FetchService, private logger: Logger) {}
 
   private fetchAnchors(anchors: Cheerio<Element>): string[] {
     return anchors
@@ -39,55 +42,110 @@ export class ScraperService {
       .get();
   }
 
-  private saveNumLinksToDisk(
+  /**
+   * Saves links and anchors to disk
+   * @param  {string[]} links
+   * @param  {string} host
+   * @param  {string} protocol
+   * @param  {string} url
+   * @returns Promise<boolean>
+   */
+  async saveNumLinksToDisk(
     links: string[],
     host: string,
     protocol: string,
     url: string,
-  ) {
-    links.forEach(async (link) => {
-      await fetch(getUrl(link, host as string, protocol as string))
-        .then(async (response) => {
-          const filename = path.basename(link);
-          if (response?.body) {
-            const responseText = await response.buffer();
-            let savePath = `downloads/${path.basename(url)}/${path.dirname(
-              link,
-            )}/${filename}`;
-            if (!hasExtension(filename)) {
-              savePath = `${savePath.split('?')[0]}.html`;
-            }
-            fse.outputFileSync(savePath, responseText);
+  ): Promise<boolean> {
+    for (const link of links) {
+      /** Get the base url */
+      const filename = path.basename(link);
+      try {
+        /** Get web response */
+        const response = await fetch(
+          getUrl(link, host as string, protocol as string),
+        );
+
+        /** Check if body is present */
+        if (response?.body) {
+          /** Get the buffer */
+          const responseText = await response.buffer();
+          /**
+           * Generate the save path
+           * Remove unwanted protocol params
+           *
+           */
+          let savePath = `downloads/${path.basename(url)}/${path.dirname(
+            link,
+          )}/${filename}`
+            .replaceAll(/https:\/\/+/gi, '/')
+            .replaceAll(/http:\/\/+/gi, '/');
+
+          /** Check if the file as an extension */
+          if (!hasExtension(savePath)) {
+            /** No extension, just add .html */
+            savePath = `${savePath.split('?')[0]}.html`;
           }
-        })
-        .catch((e) => e);
-    });
+
+          /** Logs into console about files */
+          //this.logger.info(CONSTANTS.MESSAGE.SUCCESS, filename);
+
+          /** Write to disk */
+          fse.outputFileSync(savePath, responseText);
+        }
+      } catch (e) {
+        this.logger.error(CONSTANTS.ERROR.PARSING_ERROR, e?.message ?? e);
+      }
+    }
+    return true;
   }
 
-  private saveImagesToDisk(
+  /**
+   * Saves images in the website to the disk
+   * @param  {string[]} images
+   * @param  {string} host
+   * @param  {string} protocol
+   * @param  {string} url
+   * @returns Promise
+   */
+  async saveImagesToDisk(
     images: string[],
     host: string,
     protocol: string,
     url: string,
-  ) {
-    images.forEach(async (link) => {
-      await fetch(getUrl(link, host as string, protocol as string))
-        .then(async (response) => {
-          const filename = path.basename(link);
-          if (response?.body) {
-            const data = await response.buffer();
-            if (!link.startsWith('data')) {
-              fse.outputFileSync(
-                `downloads/${path.basename(url)}/${path.dirname(
-                  link,
-                )}/${filename}`,
-                data,
-              );
-            }
+  ): Promise<boolean> {
+    for (const image of images) {
+      /** Get the base url */
+      const filename = path.basename(image);
+      try {
+        /** Get image response via a get request */
+        const response = await fetch(
+          getUrl(image, host as string, protocol as string),
+        );
+
+        /** Check if body is present */
+        if (response?.body) {
+          /** Get image as a buffer */
+          const data = await response.buffer();
+          /**
+           * Skip all base64 encoded images
+           * Todo: Implement a method to save all base64 encoded images
+           * */
+          if (!image.startsWith('data')) {
+            /** Save path generation */
+            const savePath = `downloads/${path.basename(url)}/${path.dirname(
+              image,
+            )}/${filename}`
+              .replaceAll(/https:\/\/+/gi, '/')
+              .replaceAll(/http:\/\/+/gi, '/');
+            /** Write to disk */
+            fse.outputFileSync(savePath, data);
           }
-        })
-        .catch((e) => e);
-    });
+        }
+      } catch (e) {
+        this.logger.error(CONSTANTS.ERROR.IMAGE_PARSING_ERROR, e?.message ?? e);
+      }
+    }
+    return true;
   }
 
   /**
@@ -97,40 +155,40 @@ export class ScraperService {
    * @returns Promise<string>
    */
   public async scrape({ url }: { url: string }): Promise<boolean> {
-    // Scrape time
+    /** Scrape time */
     const scrapeStart: string = new Date().toUTCString();
 
-    // If already crawled, return null stirng;
+    /** If already crawled, return null stirng; */
     if (this.seenUrls[url]) return false;
 
-    // Fetch Page Buffer
+    /** Fetch Page Buffer */
     const pageBuffer = await this.fetchService.fetchPagesFromWeb(url);
 
-    // Mark the url
+    /** Mark the url */
     this.seenUrls[url] = true;
 
-    // Extract the host and protocol from url
+    /** Extract the host and protocol from url */
     const { host, protocol } = urlParser.parse(url);
 
-    // Use Cheerio to parse the page bugger
+    /** Use Cheerio to parse the page bugger */
     const $ = cheerio.load(pageBuffer);
 
-    // Get the index location
+    /** Get the index location */
     const indexLocation = `downloads/${path.basename(url)}`;
 
-    // Save the index page
+    /** Save the index page */
     writeToDisk(pageBuffer, `${indexLocation}/index.html`);
 
-    // Fetch all anchors
+    /** Fetch all anchors */
     const anchors = this.fetchAnchors($('a'));
 
-    // Fetch all Link tags
+    /** Fetch all Link tags */
     const links = this.fetchLinks($('link'));
 
-    // Fetch all images
+    /** Fetch all images */
     const images = this.fetchImages($('img'));
 
-    // Create the metada files for crawling
+    /** Create the metada files for crawling */
     parseMetadata({
       links: links.length,
       anchors: anchors.length,
@@ -139,14 +197,29 @@ export class ScraperService {
       site: path.basename(url),
     });
 
-    // Save links to disk
-    this.saveNumLinksToDisk(links, host as string, protocol as string, url);
+    /** Save links to disk */
+    await this.saveNumLinksToDisk(
+      links,
+      host as string,
+      protocol as string,
+      url,
+    );
 
-    // Save anchors to disk
-    this.saveNumLinksToDisk(anchors, host as string, protocol as string, url);
+    /** Save anchors to disk */
+    await this.saveNumLinksToDisk(
+      anchors,
+      host as string,
+      protocol as string,
+      url,
+    );
 
-    // Save Images to disk
-    this.saveImagesToDisk(images, host as string, protocol as string, url);
+    /** Save Images to disk */
+    await this.saveImagesToDisk(
+      images,
+      host as string,
+      protocol as string,
+      url,
+    );
 
     return true;
   }

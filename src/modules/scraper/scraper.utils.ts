@@ -28,8 +28,9 @@ export function getUrl(link: string, host: string, protocol: string): string {
 export async function writeToDisk(
   file: Buffer,
   location: string,
+  options = {},
 ): Promise<boolean> {
-  fse.outputFileSync(location, file);
+  fse.outputFileSync(location, file, options);
   return true;
 }
 
@@ -58,8 +59,9 @@ export function parseMetadata({
   };
   // Write metadata to disk
   writeToDisk(
-    Buffer.from(JSON.stringify(metaData)),
+    Buffer.from(JSON.stringify(metaData) + '\n'),
     `downloads/${site}/.metadata`,
+    { flag: 'a' },
   );
 
   return metaData;
