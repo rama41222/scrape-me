@@ -6,7 +6,10 @@ const CONSTANTS = {
     INVALID_ARGUMENT: 'Invalid commandline argument',
   },
   INFO: {},
-  LOG: {},
+  LOG: {
+    METADATA: 'Medatada found!',
+    METADATA_NOTFOUND: 'Medatada not found!',
+  },
   MESSAGE: {
     SUCCESS: 'Successfully completed CRAWLING',
     START: 'Started Crawling',
