@@ -5,19 +5,25 @@ import path from 'path';
 import fs from 'fs';
 import { once } from 'events';
 import readline from 'readline';
-
+import { ScraperService } from '../scraper/scraper.service';
+import cliProgress from 'cli-progress';
 export class TaskService {
-  constructor(private logger: Logger) {}
+  private loaderCrawl = new cliProgress.SingleBar({}, cliProgress.Presets.rect);
+
+  constructor(private logger: Logger, private scraperService: ScraperService) {}
 
   public async process(commands: CommandCollection) {
     /** Process Metadata */
     const metaData = commands['--metadata'];
     await this.fetchMetaData(metaData);
-
     /** Process Help */
     const helpNeeded = commands['--help'];
+    if (helpNeeded) {
+      this.printHelp();
+    }
     /** Process Crawling */
     const crawlJobs = commands['--crawl'];
+    await this.crawl(crawlJobs);
   }
 
   /**
@@ -31,7 +37,6 @@ export class TaskService {
       try {
         /** Initialize last record */
         let lastRecord = '';
-
         /** Initialize the destination location */
         const destination = `downloads/${path.basename(request)}/.metadata`;
 
@@ -69,5 +74,48 @@ export class TaskService {
         this.logger.error(`${CONSTANTS.LOG.METADATA_NOTFOUND} for ${request}`);
       }
     }
+  }
+
+  printHelp(): void {
+    this.logger.info(`
+    AVAILABLE COMMANDS
+    ------------------
+
+    '--metadata': Array<string>;
+    '--help': boolean;
+    '--crawl': Array<string>;
+
+    EXAMPLES
+    --------
+
+    # To crawl a web
+      fetch https://www.google.com https://www.autify.com
+    
+    # To print metadata
+      fetch --metadata https://www.google.com https://www.autify.com https://www.yahoo.com
+    
+    # To print help
+      fetch --help
+    
+    # To to all at once
+      fetch https://www.google.com https://www.autify.com --metadata https://www.google.com https://www.autify.com https://www.yahoo.com --help
+    `);
+  }
+
+  async crawl(websites: string[]): Promise<boolean> {
+    this.loaderCrawl.start(websites.length * 100, 0);
+    for await (const website of websites) {
+      this.logger.info(CONSTANTS.MESSAGE.START, website);
+      const res = await this.scraperService.scrape({
+        url: website,
+      });
+      this.logger.info(CONSTANTS.MESSAGE.STATUS, res);
+      this.loaderCrawl.increment(100);
+      this.loaderCrawl.updateETA();
+    }
+
+    this.loaderCrawl.increment(100);
+    this.loaderCrawl.stop();
+    return true;
   }
 }

@@ -12,6 +12,7 @@ const CONSTANTS = {
   },
   MESSAGE: {
     SUCCESS: 'Successfully completed CRAWLING',
+    STATUS: 'Crawling Status',
     START: 'Started Crawling',
     VALID_ARGS: 'Valid arguments',
   },

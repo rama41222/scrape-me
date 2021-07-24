@@ -10,7 +10,7 @@ export default class Logger {
 
   info(message: string, data: any = {}) {
     console.info(
-      `${this.green('INFO:::')} ${this.blue(message)} \n ${this.warn(
+      `\n${this.green('INFO:::')} ${this.blue(message)} \n ${this.warn(
         JSON.stringify(data, null, 2),
       )} \n`,
     );
@@ -18,7 +18,7 @@ export default class Logger {
 
   log(message: string, data: any = {}) {
     console.log(
-      `${this.gray('LOG::: ')} ${this.white(message)} \n ${this.white(
+      `\n${this.gray('LOG::: ')} ${this.white(message)} \n ${this.white(
         JSON.stringify(data, null, 2),
       )} \n`,
     );
@@ -26,7 +26,7 @@ export default class Logger {
 
   error(message: string, data: any = {}) {
     console.error(
-      `${this.err('ERROR::: ')} ${this.red(message)} \n ${this.warn(
+      `\n${this.err('ERROR::: ')} ${this.red(message)} \n ${this.warn(
         JSON.stringify(data, null, 2),
       )} \n`,
     );
