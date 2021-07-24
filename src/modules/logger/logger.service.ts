@@ -1,13 +1,34 @@
+import chalk from 'chalk';
 export default class Logger {
-  info(message: string, data: any) {
-    console.info(`INFO::: ${message} \n ${data} \n`);
+  private err = chalk.bold.red;
+  private warn = chalk.keyword('orange');
+  private green = chalk.bold.green;
+  private blue = chalk.bold.blueBright;
+  private red = chalk.bold.redBright;
+  private gray = chalk.bold.gray;
+  private white = chalk.bold.white;
+
+  info(message: string, data: any = {}) {
+    console.info(
+      `${this.green('INFO:::')} ${this.blue(message)} \n ${this.warn(
+        JSON.stringify(data),
+      )} \n`,
+    );
   }
 
-  log(message: string, data: any) {
-    console.log(`LOG::: ${message} \n ${data} \n`);
+  log(message: string, data: any = {}) {
+    console.log(
+      `${this.gray('LOG::: ')} ${this.white(message)} \n ${this.white(
+        JSON.stringify(data),
+      )} \n`,
+    );
   }
 
-  error(message: string, data: any) {
-    console.error(`ERROR::: ${message} \n ${data} \n`);
+  error(message: string, data: any = {}) {
+    console.error(
+      `${this.err('ERROR::: ')} ${this.red(message)} \n ${this.warn(
+        JSON.stringify(data),
+      )} \n`,
+    );
   }
 }

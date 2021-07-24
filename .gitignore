@@ -110,8 +110,7 @@ dist
 .DS_Store
 
 # Stop web downloads from commiting
-downloads
-downloads/*
+/downloads
 
 # compiled output
 /build
