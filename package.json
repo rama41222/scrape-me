@@ -63,5 +63,8 @@
     ],
     "coverageDirectory": "../coverage",
     "testEnvironment": "node"
+  },
+  "bin": {
+    "fetch": "build/index.js"
   }
 }
