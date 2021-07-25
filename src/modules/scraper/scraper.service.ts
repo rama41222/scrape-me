@@ -18,6 +18,11 @@ export class ScraperService {
 
   constructor(private fetchService: FetchService, private logger: Logger) {}
 
+  /**
+   * Fetches all the anchor tag urls
+   * @param  {Cheerio<Element>} anchors
+   * @returns string
+   */
   private fetchAnchors(anchors: Cheerio<Element>): string[] {
     return anchors
       .map((i, link) =>
@@ -26,6 +31,11 @@ export class ScraperService {
       .get();
   }
 
+  /**
+   * Fetches all link tag urls
+   * @param  {Cheerio<Element>} links
+   * @returns string
+   */
   private fetchLinks(links: Cheerio<Element>): string[] {
     return links
       .map((i, link) =>
@@ -34,6 +44,11 @@ export class ScraperService {
       .get();
   }
 
+  /**
+   * Fetches all image urls
+   * @param  {Cheerio<Element>} images
+   * @returns string
+   */
   private fetchImages(images: Cheerio<Element>): string[] {
     return images
       .map((i, img) => {

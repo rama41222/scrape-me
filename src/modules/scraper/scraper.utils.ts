@@ -1,15 +1,32 @@
 import fse from 'fs-extra';
 import { MetaDataInput, MetaData } from './scraper.types';
 
+/**
+ * Checks if the url has an extension
+ * @param link  url
+ * @returns boolean
+ */
 export function hasExtension(link: string): boolean {
+  /** split by dot */
   const linkExt = link.split('.');
+
+  /** Remove url params */
   const linkWithoutParams = linkExt[linkExt.length - 1].split('?')[0];
+
+  /** Check if it has a valid file name */
   if (!linkWithoutParams.match(/\W/)) {
     return true;
   }
   return false;
 }
 
+/**
+ * Processes URLS and generate the missing paths if necessary
+ * @param  {string} link
+ * @param  {string} host
+ * @param  {string} protocol
+ * @returns string
+ */
 export function getUrl(link: string, host: string, protocol: string): string {
   if (link.includes('http')) {
     return link;
@@ -51,6 +68,7 @@ export function parseMetadata({
   last_fetch,
   site,
 }: MetaDataInput): MetaData {
+  /** Metada object */
   const metaData = {
     num_links: links + anchors,
     last_fetch,

@@ -12,15 +12,22 @@ export class TaskService {
 
   constructor(private logger: Logger, private scraperService: ScraperService) {}
 
-  public async process(commands: CommandCollection) {
+  /**
+   * Process all incoming user commands
+   * @param  {CommandCollection} commands
+   * @returns Promise
+   */
+  public async process(commands: CommandCollection): Promise<void> {
     /** Process Metadata */
     const metaData = commands['--metadata'];
     await this.fetchMetaData(metaData);
+
     /** Process Help */
     const helpNeeded = commands['--help'];
     if (helpNeeded) {
       this.printHelp();
     }
+
     /** Process Crawling */
     const crawlJobs = commands['--crawl'];
     await this.crawl(crawlJobs);
@@ -37,6 +44,7 @@ export class TaskService {
       try {
         /** Initialize last record */
         let lastRecord = '';
+
         /** Initialize the destination location */
         const destination = `downloads/${path.basename(request)}/.metadata`;
 
@@ -64,6 +72,7 @@ export class TaskService {
             JSON.parse(lastRecord),
           );
         } else {
+          /** Prints error if not found */
           this.logger.error(
             `${CONSTANTS.LOG.METADATA_NOTFOUND} for ${request}`,
             JSON.parse(lastRecord),
@@ -76,6 +85,10 @@ export class TaskService {
     }
   }
 
+  /**
+   * Prints help commands to console
+   * @returns void
+   */
   printHelp(): void {
     this.logger.info(`
     AVAILABLE COMMANDS
@@ -102,10 +115,20 @@ export class TaskService {
     `);
   }
 
+  /**
+   * Takes an array of urls to crawl
+   * @param  {string[]} websites
+   * @returns Promise<boolean>
+   */
   async crawl(websites: string[]): Promise<boolean> {
+    /** Progress bar */
     this.loaderCrawl.start(websites.length * 100, 0);
+
+    /** Loop throw array of urls */
     for await (const website of websites) {
       this.logger.info(CONSTANTS.MESSAGE.START, website);
+
+      /** Scrapes the url */
       const res = await this.scraperService.scrape({
         url: website,
       });
