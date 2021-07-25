@@ -16,7 +16,7 @@ docker-compose up
 
 ## Installation using DOCKER
 
-[https://itnext.io/lets-dockerize-a-nodejs-express-api-22700b4105e4](Learn Docker basics here.)
+[Learn Docker basics here.](https://itnext.io/lets-dockerize-a-nodejs-express-api-22700b4105e4)
 
 1. Start docker in your system
 2. Build the docker image
