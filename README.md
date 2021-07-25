@@ -2,6 +2,12 @@
 
 An entry level Web Scraping CLI
 
+## TODO
+
+[ ] I was trying to solve the current location issue using docker volume mapping but it has to be implemented as a core functionality inside the code. (incase if we are generating an npm package)
+
+[ ] Make the app functional irrespective of the location of execution without depending on docker compose.
+
 ## Documentation
 
 [Docs](http://127.0.0.1:8080)
