@@ -1,0 +1,1064 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>@rama41222/fetch documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css" media="(prefers-color-scheme: dark)">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">@rama41222/fetch documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content class">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li>Classes</li>
+  <li >ScraperService</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>src/modules/scraper/scraper.service.ts</code>
+        </p>
+
+
+
+
+
+
+            <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#seenUrls" >seenUrls</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#fetchAnchors" >fetchAnchors</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#fetchImages" >fetchImages</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#fetchLinks" >fetchLinks</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#saveImagesToDisk" >saveImagesToDisk</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#saveNumLinksToDisk" >saveNumLinksToDisk</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                    <span class="modifier">Async</span>
+                                <a href="#scrape" >scrape</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+            <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(fetchService: <a href="../classes/FetchService.html" target="_self">FetchService</a>, logger: <a href="../classes/Logger.html" target="_self">Logger</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/modules/scraper/scraper.service.ts:17</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>fetchService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../classes/FetchService.html" target="_self" >FetchService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>logger</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../classes/Logger.html" target="_self" >Logger</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+            <section>
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="seenUrls"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>seenUrls</b></span>
+                        <a href="#seenUrls"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{}</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/modules/scraper/scraper.service.ts:17</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+            <section>
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="fetchAnchors"></a>
+                    <span class="name">
+                        <span class="modifier">Private</span>
+                        <span ><b>fetchAnchors</b></span>
+                        <a href="#fetchAnchors"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>fetchAnchors(anchors: Cheerio<Element>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="26"
+                            class="link-to-prism">src/modules/scraper/scraper.service.ts:26</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Fetches all the anchor tag urls</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>anchors</td>
+                                    <td>
+                                            <code>Cheerio&lt;Element&gt;</code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>string[]</code>
+
+                    </div>
+                    <div class="io-description">
+                        <p>string</p>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="fetchImages"></a>
+                    <span class="name">
+                        <span class="modifier">Private</span>
+                        <span ><b>fetchImages</b></span>
+                        <a href="#fetchImages"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>fetchImages(images: Cheerio<Element>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="52"
+                            class="link-to-prism">src/modules/scraper/scraper.service.ts:52</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Fetches all image urls</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>images</td>
+                                    <td>
+                                            <code>Cheerio&lt;Element&gt;</code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>string[]</code>
+
+                    </div>
+                    <div class="io-description">
+                        <p>string</p>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="fetchLinks"></a>
+                    <span class="name">
+                        <span class="modifier">Private</span>
+                        <span ><b>fetchLinks</b></span>
+                        <a href="#fetchLinks"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>fetchLinks(links: Cheerio<Element>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="39"
+                            class="link-to-prism">src/modules/scraper/scraper.service.ts:39</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Fetches all link tag urls</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>links</td>
+                                    <td>
+                                            <code>Cheerio&lt;Element&gt;</code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>string[]</code>
+
+                    </div>
+                    <div class="io-description">
+                        <p>string</p>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="saveImagesToDisk"></a>
+                    <span class="name">
+                        <span class="modifier">Async</span>
+                        <span ><b>saveImagesToDisk</b></span>
+                        <a href="#saveImagesToDisk"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>saveImagesToDisk(images: string[], host: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, protocol: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, url: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="125"
+                            class="link-to-prism">src/modules/scraper/scraper.service.ts:125</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Saves images in the website to the disk</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>images</td>
+                                    <td>
+                                            <code>string[]</code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>host</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>protocol</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>url</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Promise&lt;boolean&gt;</code>
+
+                    </div>
+                    <div class="io-description">
+                        <p>Promise</p>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="saveNumLinksToDisk"></a>
+                    <span class="name">
+                        <span class="modifier">Async</span>
+                        <span ><b>saveNumLinksToDisk</b></span>
+                        <a href="#saveNumLinksToDisk"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>saveNumLinksToDisk(links: string[], host: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, protocol: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, url: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="68"
+                            class="link-to-prism">src/modules/scraper/scraper.service.ts:68</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Saves links and anchors to disk</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>links</td>
+                                    <td>
+                                            <code>string[]</code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>host</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>protocol</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>url</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Promise&lt;boolean&gt;</code>
+
+                    </div>
+                    <div class="io-description">
+                        <p>Promise<boolean></p>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="scrape"></a>
+                    <span class="name">
+                        <span class="modifier">Public</span>
+                        <span class="modifier">Async</span>
+                        <span ><b>scrape</b></span>
+                        <a href="#scrape"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>scrape(undefined: literal type)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="172"
+                            class="link-to-prism">src/modules/scraper/scraper.service.ts:172</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Cheerio
+This function will scrape a web page</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                            <code>literal type</code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Promise&lt;boolean&gt;</code>
+
+                    </div>
+                    <div class="io-description">
+                        <p>Promise<string></p>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+
+
+
+
+
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import path from &#x27;path&#x27;;
+import { FetchService } from &#x27;./../fetch/fetch.service&#x27;;
+import cheerio, { Cheerio, Element } from &#x27;cheerio&#x27;;
+import urlParser from &#x27;url&#x27;;
+import fse from &#x27;fs-extra&#x27;;
+import fetch from &#x27;node-fetch&#x27;;
+import {
+  getUrl,
+  hasExtension,
+  parseMetadata,
+  writeToDisk,
+} from &#x27;./scraper.utils&#x27;;
+import Logger from &#x27;../logger/logger.service&#x27;;
+import CONSTANTS from &#x27;../../constants&#x27;;
+
+export class ScraperService {
+  private seenUrls: any &#x3D; {};
+
+  constructor(private fetchService: FetchService, private logger: Logger) {}
+
+  /**
+   * Fetches all the anchor tag urls
+   * @param  {Cheerio&lt;Element&gt;} anchors
+   * @returns string
+   */
+  private fetchAnchors(anchors: Cheerio&lt;Element&gt;): string[] {
+    return anchors
+      .map((i, link) &#x3D;&gt;
+        link.attribs.href ? link.attribs.href : link.attribs[&#x27;data-href&#x27;],
+      )
+      .get();
+  }
+
+  /**
+   * Fetches all link tag urls
+   * @param  {Cheerio&lt;Element&gt;} links
+   * @returns string
+   */
+  private fetchLinks(links: Cheerio&lt;Element&gt;): string[] {
+    return links
+      .map((i, link) &#x3D;&gt;
+        link.attribs.href ? link.attribs.href : link.attribs[&#x27;data-href&#x27;],
+      )
+      .get();
+  }
+
+  /**
+   * Fetches all image urls
+   * @param  {Cheerio&lt;Element&gt;} images
+   * @returns string
+   */
+  private fetchImages(images: Cheerio&lt;Element&gt;): string[] {
+    return images
+      .map((i, img) &#x3D;&gt; {
+        return img.attribs.src ? img.attribs.src : img.attribs.srcset;
+      })
+      .get();
+  }
+
+  /**
+   * Saves links and anchors to disk
+   * @param  {string[]} links
+   * @param  {string} host
+   * @param  {string} protocol
+   * @param  {string} url
+   * @returns Promise&lt;boolean&gt;
+   */
+  async saveNumLinksToDisk(
+    links: string[],
+    host: string,
+    protocol: string,
+    url: string,
+  ): Promise&lt;boolean&gt; {
+    for (const link of links) {
+      /** Get the base url */
+      const filename &#x3D; path.basename(link);
+      try {
+        /** Get web response */
+        const response &#x3D; await fetch(
+          getUrl(link, host as string, protocol as string),
+        );
+
+        /** Check if body is present */
+        if (response?.body) {
+          /** Get the buffer */
+          const responseText &#x3D; await response.buffer();
+          /**
+           * Generate the save path
+           * Remove unwanted protocol params
+           *
+           */
+          let savePath &#x3D; &#x60;downloads/${path.basename(url)}/${path.dirname(
+            link,
+          )}/${filename}&#x60;
+            .replaceAll(/https:\/\/+/gi, &#x27;/&#x27;)
+            .replaceAll(/http:\/\/+/gi, &#x27;/&#x27;);
+
+          /** Check if the file as an extension */
+          if (!hasExtension(savePath)) {
+            /** No extension, just add .html */
+            savePath &#x3D; &#x60;${savePath.split(&#x27;?&#x27;)[0]}.html&#x60;;
+          }
+
+          /** Logs into console about files */
+          //this.logger.info(CONSTANTS.MESSAGE.SUCCESS, filename);
+
+          /** Write to disk */
+          fse.outputFileSync(savePath, responseText);
+        }
+      } catch (e) {
+        this.logger.error(CONSTANTS.ERROR.PARSING_ERROR, e?.message ?? e);
+      }
+    }
+    return true;
+  }
+
+  /**
+   * Saves images in the website to the disk
+   * @param  {string[]} images
+   * @param  {string} host
+   * @param  {string} protocol
+   * @param  {string} url
+   * @returns Promise
+   */
+  async saveImagesToDisk(
+    images: string[],
+    host: string,
+    protocol: string,
+    url: string,
+  ): Promise&lt;boolean&gt; {
+    for (const image of images) {
+      /** Get the base url */
+      const filename &#x3D; path.basename(image);
+      try {
+        /** Get image response via a get request */
+        const response &#x3D; await fetch(
+          getUrl(image, host as string, protocol as string),
+        );
+
+        /** Check if body is present */
+        if (response?.body) {
+          /** Get image as a buffer */
+          const data &#x3D; await response.buffer();
+          /**
+           * Skip all base64 encoded images
+           * Todo: Implement a method to save all base64 encoded images
+           * */
+          if (!image.startsWith(&#x27;data&#x27;)) {
+            /** Save path generation */
+            const savePath &#x3D; &#x60;downloads/${path.basename(url)}/${path.dirname(
+              image,
+            )}/${filename}&#x60;
+              .replaceAll(/https:\/\/+/gi, &#x27;/&#x27;)
+              .replaceAll(/http:\/\/+/gi, &#x27;/&#x27;);
+            /** Write to disk */
+            fse.outputFileSync(savePath, data);
+          }
+        }
+      } catch (e) {
+        this.logger.error(CONSTANTS.ERROR.IMAGE_PARSING_ERROR, e?.message ?? e);
+      }
+    }
+    return true;
+  }
+
+  /**
+   * Cheerio
+   * This function will scrape a web page
+   * @param  {string} url : Website url
+   * @returns Promise&lt;string&gt;
+   */
+  public async scrape({ url }: { url: string }): Promise&lt;boolean&gt; {
+    /** Scrape time */
+    const scrapeStart: string &#x3D; new Date().toUTCString();
+
+    /** If already crawled, return null stirng; */
+    if (this.seenUrls[url]) return false;
+
+    /** Fetch Page Buffer */
+    const pageBuffer &#x3D; await this.fetchService.fetchPagesFromWeb(url);
+
+    /** Mark the url */
+    this.seenUrls[url] &#x3D; true;
+
+    /** Extract the host and protocol from url */
+    const { host, protocol } &#x3D; urlParser.parse(url);
+
+    /** Use Cheerio to parse the page bugger */
+    const $ &#x3D; cheerio.load(pageBuffer);
+
+    /** Get the index location */
+    const indexLocation &#x3D; &#x60;downloads/${path.basename(url)}&#x60;;
+
+    /** Save the index page */
+    writeToDisk(pageBuffer, &#x60;${indexLocation}/index.html&#x60;);
+
+    /** Fetch all anchors */
+    const anchors &#x3D; this.fetchAnchors($(&#x27;a&#x27;));
+
+    /** Fetch all Link tags */
+    const links &#x3D; this.fetchLinks($(&#x27;link&#x27;));
+
+    /** Fetch all images */
+    const images &#x3D; this.fetchImages($(&#x27;img&#x27;));
+
+    /** Create the metada files for crawling */
+    parseMetadata({
+      links: links.length,
+      anchors: anchors.length,
+      images: images.length,
+      last_fetch: scrapeStart,
+      site: path.basename(url),
+    });
+
+    /** Save links to disk */
+    await this.saveNumLinksToDisk(
+      links,
+      host as string,
+      protocol as string,
+      url,
+    );
+
+    /** Save anchors to disk */
+    await this.saveNumLinksToDisk(
+      anchors,
+      host as string,
+      protocol as string,
+      url,
+    );
+
+    /** Save Images to disk */
+    await this.saveImagesToDisk(
+      images,
+      host as string,
+      protocol as string,
+      url,
+    );
+
+    return true;
+  }
+}
+</code></pre>
+    </div>
+</div>
+
+
+
+                   
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'class';
+            var COMPODOC_CURRENT_PAGE_URL = 'ScraperService.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+       
+       <script type="module" src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

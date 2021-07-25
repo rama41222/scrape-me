@@ -16,7 +16,7 @@ customElements.define('compodoc-menu', class extends HTMLElement {
         <nav>
             <ul class="list">
                 <li class="title">
-                    <a href="index.html" data-type="index-link">scrape-me documentation</a>
+                    <a href="index.html" data-type="index-link">@rama41222/fetch documentation</a>
                 </li>
 
                 <li class="divider"></li>
@@ -39,8 +39,79 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <span class="icon ion-ios-paper"></span>LICENSE
                             </a>
                         </li>
+                                <li class="link">
+                                    <a href="dependencies.html" data-type="chapter-link">
+                                        <span class="icon ion-ios-list"></span>Dependencies
+                                    </a>
+                                </li>
                     </ul>
                 </li>
+                    <li class="chapter">
+                        <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ? 'data-target="#classes-links"' :
+                            'data-target="#xs-classes-links"' }>
+                            <span class="icon ion-ios-paper"></span>
+                            <span>Classes</span>
+                            <span class="icon ion-ios-arrow-down"></span>
+                        </div>
+                        <ul class="links collapse " ${ isNormalMode ? 'id="classes-links"' : 'id="xs-classes-links"' }>
+                            <li class="link">
+                                <a href="classes/CliService.html" data-type="entity-link" >CliService</a>
+                            </li>
+                            <li class="link">
+                                <a href="classes/FetchService.html" data-type="entity-link" >FetchService</a>
+                            </li>
+                            <li class="link">
+                                <a href="classes/Logger.html" data-type="entity-link" >Logger</a>
+                            </li>
+                            <li class="link">
+                                <a href="classes/ScraperService.html" data-type="entity-link" >ScraperService</a>
+                            </li>
+                            <li class="link">
+                                <a href="classes/TaskService.html" data-type="entity-link" >TaskService</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="chapter">
+                        <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ? 'data-target="#interfaces-links"' :
+                            'data-target="#xs-interfaces-links"' }>
+                            <span class="icon ion-md-information-circle-outline"></span>
+                            <span>Interfaces</span>
+                            <span class="icon ion-ios-arrow-down"></span>
+                        </div>
+                        <ul class="links collapse " ${ isNormalMode ? ' id="interfaces-links"' : 'id="xs-interfaces-links"' }>
+                            <li class="link">
+                                <a href="interfaces/CommandCollection.html" data-type="entity-link" >CommandCollection</a>
+                            </li>
+                            <li class="link">
+                                <a href="interfaces/MetaData.html" data-type="entity-link" >MetaData</a>
+                            </li>
+                            <li class="link">
+                                <a href="interfaces/MetaDataInput.html" data-type="entity-link" >MetaDataInput</a>
+                            </li>
+                            <li class="link">
+                                <a href="interfaces/ParseArgs.html" data-type="entity-link" >ParseArgs</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="chapter">
+                        <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ? 'data-target="#miscellaneous-links"'
+                            : 'data-target="#xs-miscellaneous-links"' }>
+                            <span class="icon ion-ios-cube"></span>
+                            <span>Miscellaneous</span>
+                            <span class="icon ion-ios-arrow-down"></span>
+                        </div>
+                        <ul class="links collapse " ${ isNormalMode ? 'id="miscellaneous-links"' : 'id="xs-miscellaneous-links"' }>
+                            <li class="link">
+                                <a href="miscellaneous/enumerations.html" data-type="entity-link">Enums</a>
+                            </li>
+                            <li class="link">
+                                <a href="miscellaneous/functions.html" data-type="entity-link">Functions</a>
+                            </li>
+                            <li class="link">
+                                <a href="miscellaneous/variables.html" data-type="entity-link">Variables</a>
+                            </li>
+                        </ul>
+                    </li>
                     <li class="chapter">
                         <a data-type="chapter-link" href="coverage.html"><span class="icon ion-ios-stats"></span>Documentation coverage</a>
                     </li>

@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>scrape-me documentation</title>
+        <title>@rama41222/fetch documentation</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -14,7 +14,7 @@
     <body>
 
         <div class="navbar navbar-default navbar-fixed-top visible-xs">
-            <a href="./" class="navbar-brand">scrape-me documentation</a>
+            <a href="./" class="navbar-brand">@rama41222/fetch documentation</a>
             <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
         </div>
 
@@ -31,9 +31,46 @@
                <div class="content getting-started">
                    <div class="content-data">
 
-<h1 id="scrape-me">scrape-me</h1>
-<p>Web Scraping CLI</p>
+<h1 id="scrape-me">SCRAPE ME</h1>
+<p>An entry level Web Scraping CLI</p>
+<h2 id="documentation">Documentation</h2>
+<p><a href="http://127.0.0.1:8080">Docs</a></p>
+<div><pre class="line-numbers"><code class="language-bash"># Generate docs and to serve docs
+npm run doc</code></pre></div><h2 id="installation">Installation</h2>
+<h3 id="init">Init</h3>
+<div><pre class="line-numbers"><code class="language-bash">
+npm i
 
+chmod 777 bin/fetch
+
+chmod 777 downloads
+</code></pre></div><h3 id="fetch-command">Fetch command</h3>
+<div><pre class="line-numbers"><code class="language-bash">
+npm link
+</code></pre></div><h3 id="building-steps-after-linking">Building steps after linking</h3>
+<div><pre class="line-numbers"><code class="language-bash">rm -rf tsconfig.tsbuildinfo &amp;&amp; npm run build</code></pre></div><h3 id="crawling">Crawling</h3>
+<div><pre class="line-numbers"><code class="language-bash">#### AVAILABLE COMMANDS
+-----------------------
+
+    &#39;--metadata&#39;: Array&lt;string&gt;;
+    &#39;--help&#39;: boolean;
+    &#39;--crawl&#39;: Array&lt;string&gt;;
+
+#### EXAMPLES
+-------------
+
+    # To crawl a web
+      fetch https://www.google.com https://www.autify.com
+    
+    # To print metadata
+      fetch --metadata https://www.google.com https://www.autify.com https://www.yahoo.com
+    
+    # To print help
+      fetch --help
+    
+    # To to all at once
+      fetch https://www.google.com https://www.autify.com --metadata https://www.google.com https://www.autify.com https://www.yahoo.com --help
+</code></pre></div>
 
 
 
