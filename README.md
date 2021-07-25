@@ -9,6 +9,52 @@ An entry level Web Scraping CLI
 ```bash
 # Generate docs and to serve docs
 npm run doc
+
+# After building the docker image
+docker-compose up
+```
+
+## Installation using DOCKER
+
+[https://itnext.io/lets-dockerize-a-nodejs-express-api-22700b4105e4](Learn Docker basics here.)
+
+1. Start docker in your system
+2. Build the docker image
+
+   ```bash
+    docker-compose build --progress=plain
+   ```
+
+3. Run the docker services
+
+   ```bash
+    DOCS and Container BROWSER
+    ----------------
+
+    docker-compose up
+    
+    CLI
+    ---
+
+    # Crawl a web
+    docker-compose run fetch  https://www.google.com 
+   
+    # Crawl multiple webs
+    docker-compose run fetch  https://www.google.com https://www.autify.com
+
+    # Help
+    docker-compose run fetch --help
+
+    # Metadata
+    docker-compose run fetch --metadata https://www.google.com 
+   ```
+
+Other important docker commands
+
+```bash
+    docker-compose stop
+    docker-compose start
+    docker-compose run <custom service>
 ```
 
 ## Installation
@@ -19,9 +65,11 @@ npm run doc
 
 npm i
 
-chmod 777 bin/fetch
+chmod 755 bin/fetch
 
-chmod 777 downloads
+mkdir downloads
+
+chmod 755 downloads
 
 ```
 

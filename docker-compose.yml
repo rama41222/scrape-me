@@ -1,0 +1,22 @@
+version: '3.7'
+services:
+  fetch:
+    image: cli-app
+    build: .
+    volumes:
+      - .:/usr/src/app/downloads 
+    entrypoint: /usr/src/app/bin/fetch
+
+  docs:
+    image: cli-app
+    entrypoint: /bin/sh -c "npm run doc"
+    ports:
+      - "8080:8080"
+
+  surf:
+    image: cli-app
+    volumes:
+      - .:/usr/src/app/downloads
+    ports:
+      - "8090:8090"
+    entrypoint: /bin/sh -c "http-server -p 8090 -i /usr/src/app/downloads/" 
