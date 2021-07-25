@@ -20,4 +20,16 @@ describe('Scraper Service', () => {
   it('Scraper should have a scrape method', () => {
     expect(scraperService.scrape).toBeDefined();
   });
+
+  it('Scraper should have a saveNumLinksToDisk method', () => {
+    expect(scraperService.saveNumLinksToDisk).toBeDefined();
+  });
+
+  it('Scraper should have a saveNumLinksToDisk method', () => {
+    expect(scraperService.saveNumLinksToDisk).toBeDefined();
+  });
+
+  it('Scraper should have a saveImagesToDisk method', () => {
+    expect(scraperService.saveNumLinksToDisk).toBeDefined();
+  });
 });

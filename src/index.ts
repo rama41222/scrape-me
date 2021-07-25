@@ -36,4 +36,6 @@ export function cli(args: any) {
   /** Send parsed args for processing */
   taskService.process(commands);
 }
+
+/** Uncomment below line for dev */
 // cli(process.argv);
